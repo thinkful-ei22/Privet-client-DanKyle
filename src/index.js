@@ -5,12 +5,13 @@ import {Provider} from 'react-redux';
 import App from './components/app';
 import store from './store';
 import './index.css';
+import './grid.css';
 
 ReactDOM.render(
-    <Provider store={store}>
-        <Router>
-            <App />
-        </Router>
-    </Provider>,
-    document.getElementById('root')
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
 );
