@@ -11,7 +11,7 @@ export class Practice extends React.Component {
 
   render(){
     return (
-      <h1>Welcome, `${this.props.name}`</h1>
+      <h1>Welcome, {this.props.name}</h1>
     );
   }
 }
