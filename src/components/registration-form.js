@@ -32,7 +32,7 @@ export class RegistrationForm extends React.Component {
               )}>
               <label htmlFor="name">Name</label>
               <Field 
-                component={Input} 
+                component={Input}
                 type="text" 
                 name="name" 
                 validate={[required, nonEmpty]}

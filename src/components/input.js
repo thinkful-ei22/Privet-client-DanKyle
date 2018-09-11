@@ -20,6 +20,11 @@ export default class Input extends React.Component {
       );
     }
 
+    let autocomplete = 'off';
+    if(this.props.type === 'password'){
+      autocomplete = 'password';
+    }
+
     return (
       <div className="form-input">
         <label htmlFor={this.props.input.name}>
@@ -31,6 +36,7 @@ export default class Input extends React.Component {
           {...this.props.input}
           id={this.props.input.name}
           type={this.props.type}
+          autoComplete={autocomplete}
           ref={input => (this.input = input)}
         />
       </div>
