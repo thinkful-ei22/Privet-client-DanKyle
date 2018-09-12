@@ -1,4 +1,3 @@
-
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
@@ -27,14 +26,14 @@ export const sendAnswerAction = (feedback) => ({
 
 export const fetchWord = () => (dispatch, getState) => {
   // dispatch(fetchWordRequest());
-  // const authToken = getState().auth.authToken;
+  const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/word`, {
     method: 'GET',
-    // headers: {
-    //   'Authorization': `Bearer ${authToken}`,
-    //   'Accept': 'application/json',
-    //   'Content-Type': 'application/json'
-    // }
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
   })
     .then(res => {
       if (!res.ok) {
@@ -50,7 +49,7 @@ export const fetchWord = () => (dispatch, getState) => {
     });
 };
 
-export const sendAnswer = (answer) => (dispatch, getState) => {
+export const sendAnswer = (answer, questionId) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/word`, {
     method: 'POST',
@@ -59,7 +58,7 @@ export const sendAnswer = (answer) => (dispatch, getState) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ answer })
+    body: JSON.stringify({ answer, questionId })
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())

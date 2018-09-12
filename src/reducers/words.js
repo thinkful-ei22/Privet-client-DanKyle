@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
   if (action.type === actions.SEND_ANSWER) {
     return Object.assign(
       {}, state,
-      { feedback: state.feedback });
+      { feedback: action.feedback });
   }
 
   if (action.type === actions.FETCH_WORD_REQUEST) {
