@@ -89,7 +89,7 @@ export class Practice extends React.Component {
           </div>
           <div className=' horizontal-divider center col-12'>
             <button className='resetBtn'>Reset</button>
-            <Link to='/'><button className='finishBtn'>Finish</button></Link>
+            <Link to='/progress'><button className='finishBtn'>Finish</button></Link>
           </div>
         </div>
       </main>

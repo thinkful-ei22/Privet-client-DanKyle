@@ -2,7 +2,7 @@ import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import { Link } from 'react-router-dom';
 import {registerUser} from '../actions/users';
-import {login} from '../actions/auth';
+// import {login} from '../actions/auth';
 import Input from './input';
 import {required, nonEmpty, matches, length, isTrimmed} from '../validators';
 
@@ -17,7 +17,9 @@ export class RegistrationForm extends React.Component {
     const user = {username, password, name};
     return this.props
       .dispatch(registerUser(user))
-      .then(() => this.props.dispatch(login(username, password)));
+      //changed this to match the requirement in the user stories
+      .then(() => this.props.history.push('/success'))
+      // .then(() => this.props.dispatch(login(username, password)));
   }
 
   render() {

@@ -3,7 +3,7 @@ import React from 'react';
 export default function LogoutPage(props){
     window.setTimeout(() => {
       return props.history.push('/');
-    }, 5000);
+    }, 3000);
 
     return (
       <section className='row'>
