@@ -64,7 +64,7 @@ export class RegistrationForm extends React.Component {
                     Register
               </button>
             </form>
-            <Link to="/login">Already registered? Login!</Link>
+            <Link className ='login-link' to="/login">Already registered? Login!</Link>
           </div>
         </section>
       </main>

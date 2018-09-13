@@ -12,6 +12,7 @@ export class Practice extends React.Component {
     super(props);
     this.state = {
       showGreeting: true,
+      showSubmitBtn: true,
       showNextBtn: false,
       userAnswer: '',
       showFeedback: false
@@ -23,22 +24,24 @@ export class Practice extends React.Component {
     this.setState({
       showNextBtn: false
     });
-    // window.setTimeout(()=>this.setState({showGreeting: false}), 10000);
+    window.setTimeout(()=>this.setState({showGreeting: false}), 5000);
   }
 
-  handleUserAnswer(answer) {
+  handleSubmitBtn(answer) {
     this.props.dispatch(sendAnswer(answer, this.props.word.questionId));
     this.setState({
+      showSubmitBtn:false,
       showNextBtn: true,
       userAnswer: answer,
       showFeedback: true
     });
   }
 
-  handleNext() {
+  handleNextBtn() {
     this.props.dispatch(fetchWord());
     this.setState({
       showNextBtn: false,
+      showSubmitBtn: true,
       showFeedback: false
     });
   }
@@ -50,12 +53,7 @@ export class Practice extends React.Component {
 
     let greeting = <p></p>;
     if (this.state.showGreeting) {
-      greeting = (<p className='center'>Welcome, {this.props.name}</p>);
-    }
-
-    let nextBtn;
-    if (this.state.showNextBtn) {
-      nextBtn = (<button onClick={() => this.handleNext()}>Next</button>);
+      greeting = (<p className='welcome-text left'>Welcome, {this.props.name}</p>);
     }
 
     let feedback = '';
@@ -70,10 +68,10 @@ export class Practice extends React.Component {
             {greeting}
           </div>
           <div className='col-12'>
-            <h1>Type in the English equivalent and submit</h1>
+            <h1 className='center'>Type in the English equivalent and submit</h1>
           </div>
-          <div className='col-12'>
-            <div className='feedback-message center'>
+          <div className='feedback-message col-12'>
+            <div className='center'>
               {feedback}
             </div>
           </div>
@@ -81,10 +79,11 @@ export class Practice extends React.Component {
             <Word word={{ word: this.props.word, translit: this.props.translit }} />
           </div>
           <div className='col-6'>
-            <WordForm handleSubmit={(answer) => this.handleUserAnswer(answer)} />
+            <WordForm handleSubmit={(answer) => this.handleSubmitBtn(answer)} submitBtn={this.state.showSubmitBtn} nextBtn={this.state.showNextBtn} handleNext={()=>this.handleNextBtn()}/>
           </div>
-          <div>
-            {nextBtn}
+          <div className=' horizontal-divider center col-12'>
+            <button className='resetBtn'>Reset</button>
+            <button className='finishBtn'>Finish</button>
           </div>
         </div>
       </main>

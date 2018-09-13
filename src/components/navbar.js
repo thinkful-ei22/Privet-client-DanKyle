@@ -28,6 +28,9 @@ export class Navbar extends React.Component{
               <Link to='' >About</Link>
             </li>
             <li>
+              <Link to='' >Progress</Link>
+            </li>
+            <li>
               {logInOut}
             </li>
           </ul>

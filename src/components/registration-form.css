@@ -29,3 +29,12 @@
   background: #DFE0E2;
 }
 
+.login-link {
+  text-decoration: none;
+}
+
+.login-link:hover,
+.login-link:active {
+      color:#181818;
+      text-decoration:underline;
+}

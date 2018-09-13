@@ -1,4 +1,5 @@
 import React from 'react';
+import './word.css'
 
 export default function Word(props){
   return (
@@ -8,8 +9,8 @@ export default function Word(props){
           <p>Russian</p>
         </div>
         <div className='word'>
-          <p className='original-word'>{props.word.word.word}</p>
-          <p className='translit'>{props.word.word.translit}</p>
+          <p className='original-word center'>{props.word.word.word}</p>
+          <p className='translit center'>( {props.word.word.translit} )</p>
         </div>
       </div>
     </section>
