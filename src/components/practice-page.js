@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Word from './word';
 import WordForm from './word-form';
 import Feedback from './feedback';
@@ -17,6 +18,7 @@ export class Practice extends React.Component {
       userAnswer: '',
       showFeedback: false
     };
+    this.greetingTimer = '';
   }
 
   componentDidMount() {
@@ -24,7 +26,11 @@ export class Practice extends React.Component {
     this.setState({
       showNextBtn: false
     });
-    window.setTimeout(()=>this.setState({showGreeting: false}), 5000);
+    this.greetingTimer = window.setTimeout(() => this.setState({ showGreeting: false }), 5000);
+  }
+
+  componentWillUnmount(){
+    window.clearTimeout(this.greetingTimer);
   }
 
   handleSubmitBtn(answer) {
@@ -83,7 +89,7 @@ export class Practice extends React.Component {
           </div>
           <div className=' horizontal-divider center col-12'>
             <button className='resetBtn'>Reset</button>
-            <button className='finishBtn'>Finish</button>
+            <Link to='/'><button className='finishBtn'>Finish</button></Link>
           </div>
         </div>
       </main>

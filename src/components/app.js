@@ -8,6 +8,8 @@ import Practice from './practice-page';
 import RegistrationPage from './registration-page';
 import LoginPage from './login-page';
 import {refreshAuthToken} from '../actions/auth';
+import LogoutPage from './logout-page';
+import Progress from './progress';
 
 export class App extends React.Component {
   componentDidUpdate(prevProps) {
@@ -44,9 +46,11 @@ export class App extends React.Component {
       <div className="app">
         <Navbar />
         <Route exact path="/" component={LandingPage} />
+        <Route exact path="/progress" component={Progress} />
         <Route exact path="/practice" component={Practice} />
         <Route exact path="/register" component={RegistrationPage} />
         <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/logout" component={LogoutPage} />
       </div>
     );
   }

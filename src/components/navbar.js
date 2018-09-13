@@ -15,12 +15,12 @@ export class Navbar extends React.Component{
     let navLinks = '';
     if (this.props.loggedIn) {
       logInOut = (
-        <a href='' onClick={() => this.logOut()}>Log out</a>
+        <Link to="/logout" onClick={() => this.logOut()}>Log out</Link>
       );
       navLinks = (
         <React.Fragment>
           <li>
-            <Link to='' >Progress</Link>
+            <Link to='/progress' >Progress</Link>
           </li>
           <li>
             <Link to='/practice' >Practice</Link>

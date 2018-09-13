@@ -5,8 +5,7 @@ import {Redirect} from 'react-router-dom';
 import RegistrationForm from './registration-form';
 
 export function RegistrationPage(props) {
-  // If we are logged in (which happens automatically when registration
-  // is successful) redirect to the user's dashboard
+  // If we are logged in redirect to practice page
   if (props.loggedIn) {
     return <Redirect to="/practice" />;
   }
