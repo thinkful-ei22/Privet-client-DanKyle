@@ -5,11 +5,13 @@ export default class WordForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      value: ''
+      value: '', 
+      disabled: false
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNext = this.handleNext.bind(this);
   }
 
   handleChange(e) {
@@ -19,20 +21,23 @@ export default class WordForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit(this.state.value);
-    this.setState({ value: '' });
+    this.setState({ disabled: true});
+  }
+
+  handleNext(e){
+    this.props.handleNext();
+    this.setState({ value: '', disabled: false });
   }
 
   render(){
     let nextBtn;
     if (this.props.nextBtn) {
-      nextBtn = <button className='next-btn' onClick={() => this.props.handleNext()}>Next</button>;
+      nextBtn = <button className='next-btn' onClick={this.handleNext}>Next</button>;
     }
     let submitBtn;
     if (this.props.submitBtn) {
       submitBtn = <button className='answer-submit-btn' type="submit">Submit</button>;
     }
-
-
 
     return (
       <section className='word-section row'>
@@ -42,7 +47,7 @@ export default class WordForm extends React.Component {
           </div>
           <form className='word-form' onSubmit={this.handleSubmit}>
             <label>
-              <input className='user-answer' type="text" value={this.state.value} onChange={this.handleChange}  />
+              <input className='user-answer' type="text" disabled={this.state.disabled} value={this.state.value} onChange={this.handleChange}  />
             </label>
             { submitBtn }
             { nextBtn }

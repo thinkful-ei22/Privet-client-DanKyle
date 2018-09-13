@@ -15,7 +15,7 @@ export default (state = initialState, action) => {
       { feedback: action.feedback });
   }
 
-  if (action.type === actions.FETCH_WORD_REQUEST) {
+  else if (action.type === actions.FETCH_WORD_REQUEST) {
     return Object.assign({}, state, { loading: true });
   }
 

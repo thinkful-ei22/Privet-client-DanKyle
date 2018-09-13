@@ -1,32 +1,31 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import requiresLogin from './requires-login';
 import ReactTable from "react-table";
 import 'react-table/react-table.css';
 import './progress.css';
+import { fetchProgress } from '../actions/users';
 
-export default class Progress extends React.Component{
+export class Progress extends React.Component{
+  componentDidMount(){
+    this.props.dispatch(fetchProgress())
+  }
   render(){
-    const data = [{
-      russian: 'Привет',
-      translit: '(pree-vyEt)',
-      english: 'Hello',
-      score: 10,
-      attempts: 10
-    },
-      {
-        russian: 'Друг',
-        translit: '(droog)',
-        english: 'Friend',
-        score: 4,
-        attempts: 7
-      },
-      {
-        russian: 'Семья',
-        translit: '(sem-yA)',
-        english: 'Family',
-        score: 6,
-        attempts: 6
-      }]
+    if(!this.props.progress){
+      return <p>Loading your progress...</p>
+    }
 
+    const data = this.props.progress.map(val => {
+      return {
+        russian: val.russian,
+        translit: val.translit,
+        english: val.english,
+        score: val.score,
+        attempts: val.attempts
+      }
+    })
+    
     const columns = [{
       Header: 'Russian',
       accessor: 'russian' // String-based value accessors!
@@ -58,11 +57,21 @@ export default class Progress extends React.Component{
           <ReactTable
             data={data}
             columns={columns}
-            defaultPageSize={10}
+            defaultPageSize={5}
             className={'-striped'}
           />
+          <Link to='/practice'><button className='right back-btn'>Practice</button></Link>
       </main>
       </div>
     );
   }
 }
+
+const mapStateToProps = state => {
+  const progress = state.user.progress;
+  return {
+    progress
+  };
+};
+
+export default requiresLogin()(connect(mapStateToProps)(Progress));
