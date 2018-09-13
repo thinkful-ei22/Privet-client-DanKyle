@@ -49,7 +49,7 @@ export const fetchWord = () => (dispatch, getState) => {
     });
 };
 
-export const sendAnswer = (answer, questionId) => (dispatch, getState) => {
+export const sendAnswer = answer => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/word`, {
     method: 'POST',
@@ -58,7 +58,7 @@ export const sendAnswer = (answer, questionId) => (dispatch, getState) => {
       'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ answer, questionId })
+    body: JSON.stringify({ answer })
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())

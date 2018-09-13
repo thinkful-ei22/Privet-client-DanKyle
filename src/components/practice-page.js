@@ -28,7 +28,7 @@ export class Practice extends React.Component {
   }
 
   handleSubmitBtn(answer) {
-    this.props.dispatch(sendAnswer(answer, this.props.word.questionId));
+    this.props.dispatch(sendAnswer(answer));
     this.setState({
       showSubmitBtn:false,
       showNextBtn: true,
