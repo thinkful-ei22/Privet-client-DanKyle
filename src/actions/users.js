@@ -56,8 +56,6 @@ export const reset = () => (dispatch, getState) => {
     }
   })
   .then(res => normalizeResponseErrors(res))
-  // .then(res => dispatch(reset()))
-  .then(() => console.log('Reset clicked!'))
   .catch(err => console.log(err))
 }
 

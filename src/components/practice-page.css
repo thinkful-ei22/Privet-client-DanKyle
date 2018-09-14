@@ -7,7 +7,7 @@
   height: 80px;
 }
 
-.resetBtn, .finishBtn {
+.finishBtn {
   border: 1px solid #181818;
   color: #181818;
   font-size: 12px;
@@ -25,8 +25,6 @@
   transition: all 0.3s;
 }
 
-.resetBtn:hover,
-.resetBtn:active,
 .finishBtn:hover,
 .finishBtn:active {
   color: #fff;
