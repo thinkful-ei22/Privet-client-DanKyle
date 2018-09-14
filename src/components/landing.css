@@ -1,17 +1,20 @@
 .heading {
   text-align: center;
-  height: 50vh;
   background-color: #DFE0E2;
-  padding-top: 60px;
+  padding-top: 30px;
+  padding-bottom: 50px;
   margin-bottom: 30px;
 }
 
-.heading h1 {
+.title{
   font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 25px;
 }
-
-.heading p {
+.subtitle {
   font-size: 30px;
+  font-weight: 100;
+  margin-top: 0;
 }
 
 .heading button {
@@ -41,4 +44,17 @@
 
 .about-section p{
   line-height: 1.8;
+  font-weight: 100;
+}
+
+.reg-form input {
+  padding: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  /* width: 100%; */
+  font-weight: 100;
+}
+
+.reg-form label {
+  font-size: 14px;
 }

@@ -15,7 +15,7 @@ export function LoginPage(props) {
         <div className="col-12">
           <h1 className='login-page-heading'>Login</h1>
         </div>
-        <div className="col-12">
+        <div className="col-4">
           <LoginForm />
         </div>
         <div className="col-12">

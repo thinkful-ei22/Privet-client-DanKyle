@@ -13,14 +13,13 @@ export function LandingPage(props) {
       <div className='col-8'>
         <About />
       </div>
-      <div className='col-4'>
+      <div className='reg-form col-4'>
         <h2>Register</h2>
         <RegistrationForm />
       </div>
     </div>
   );
   
-  // If user is logged in, go to practice page
   if (props.loggedIn) {
     letsGoBtn = (<Link to="/practice"><button >Let's Go!</button></Link>);
     aboutArea = (
@@ -29,15 +28,14 @@ export function LandingPage(props) {
     </div>
     );
   }
-
-
+  
   return (
     <main className='home'>
       <section className='heading'>
         <div className='row'>
           <div className='col-12'>
-            <h1>Learning Russian has never been easier</h1>
-            <p>Fast and fun way to memorize new words!</p>
+            <h1 className='title'>Learning Russian has never been easier</h1>
+            <p className='subtitle'>Fast and fun way to memorize new words!</p>
             {letsGoBtn}
           </div>
         </div>

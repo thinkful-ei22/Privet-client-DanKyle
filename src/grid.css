@@ -54,8 +54,8 @@
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
   /* 2 columns */
-  .col-2, {
-    width: 12.5%;
+  .col-2 {
+    width: 16.6666%;
   }
 
   /* 3 columns, 3/12 in % */
