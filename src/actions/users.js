@@ -45,6 +45,24 @@ export const fetchProgress = () => (dispatch, getState) => {
     });
 };
 
+export const reset = () => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch (`${API_BASE_URL}/users/reset`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${authToken}`,
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => normalizeResponseErrors(res))
+  // .then(res => dispatch(reset()))
+  .then(() => console.log('Reset clicked!'))
+  .catch(err => console.log(err))
+}
+
+
+
 export const registerUser = user => dispatch => {
   return fetch(`${API_BASE_URL}/users`, {
     method: 'POST',

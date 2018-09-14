@@ -7,6 +7,7 @@ import Feedback from './feedback';
 import requiresLogin from './requires-login';
 import './practice-page.css';
 import { fetchWord, sendAnswer } from '../actions/words';
+import { reset } from '../actions/users';
 
 export class Practice extends React.Component {
   constructor(props) {
@@ -52,6 +53,10 @@ export class Practice extends React.Component {
     });
   }
 
+  handleReset(){
+    this.props.dispatch(reset());
+  }
+
   render() {
     if (!this.props.word) {
       return <p>loading...</p>;
@@ -88,7 +93,7 @@ export class Practice extends React.Component {
             <WordForm handleSubmit={(answer) => this.handleSubmitBtn(answer)} submitBtn={this.state.showSubmitBtn} nextBtn={this.state.showNextBtn} handleNext={()=>this.handleNextBtn()}/>
           </div>
           <div className=' horizontal-divider center col-12'>
-            <button className='resetBtn'>Reset</button>
+            <button onClick={()=>this.handleReset()} className='resetBtn'>Reset</button>
             <Link to='/progress'><button className='finishBtn'>Finish</button></Link>
           </div>
         </div>

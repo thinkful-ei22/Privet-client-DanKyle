@@ -22,7 +22,9 @@ export class Progress extends React.Component{
         translit: val.translit,
         english: val.english,
         score: val.score,
-        attempts: val.attempts
+        attempts: val.attempts,
+        sessionScore: val.sessionScore,
+        sessionAttempts: val.sessionAttempts
       }
     })
     
@@ -36,6 +38,16 @@ export class Progress extends React.Component{
       {
         Header: 'English',
         accessor: 'english'
+      },
+      {
+        Header: 'Session Score',
+        accessor: 'sessionScore',
+        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
+      },
+      {
+        Header: 'Session Attempts',
+        accessor: 'sessionAttempts',
+        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
       },
       {
         Header: 'Score',
