@@ -19,3 +19,9 @@ body {
 .form-error{
   color:red;
 }
+
+@media screen and (max-width: 400px) {
+  input {
+    background-color: #fbfbfb;
+  }
+}
