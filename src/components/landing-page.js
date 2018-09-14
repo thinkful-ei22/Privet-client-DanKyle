@@ -9,7 +9,7 @@ import './landing.css';
 export function LandingPage(props) {
   
   const ctaBtnLink = props.loggedIn ? 'practice' : 'register';
-  const ctaBtnText = props.loggedIn ? 'Start Practicing!' : 'Sign Me Up!';
+  const ctaBtnText = props.loggedIn ? 'Let\'s Go!' : 'Sign Me Up!';
   let aboutArea = (
     <div className='col-12'>
       <div className='col-8'>

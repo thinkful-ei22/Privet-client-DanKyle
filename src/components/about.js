@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function About(props){
   return (
@@ -6,7 +7,19 @@ export default function About(props){
       <div className='col-12 left about'>
         <h2 className='about-heading'>About</h2>
         <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          <strong>Privet</strong> uses a <em>Spaced Repetition</em> algorithm to speed up your learning.
+        </p>
+        <p>
+          Spaced repetition is a method for efficient learning that has you practice concepts or skills over increasing periods of time. It's based on the notion of a "forgetting curve," or the idea that over time, if we don't actively use or reflect on something we know, our knowledge decays.
+        </p>
+        <p>
+          With <strong>Privet</strong>, we help you stay ahead of that moment of forgetting, and we do it <em>efficiently</em>.
+        </p>
+        <p>
+          As you answer words correctly, we'll show you those words less frequently. If you guess the wrong answer, we'll give you more opportunities to practice that word. <em>Learning has never been easier!</em>
+        </p>
+        <p>
+          <Link to='/register'><strong>Start your journey to Russian fluency now!</strong></Link>
         </p>
       </div>
     </section>
