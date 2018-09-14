@@ -25,10 +25,8 @@ export class RegistrationForm extends React.Component {
   render() {
     return (
       <main role='main' className='registrationForm'>
-        <section className='row'>
-          <div className="col-12">
             <form
-              className="login-form"
+              className="register-form"
               onSubmit={this.props.handleSubmit(values =>
                 this.onSubmit(values)
               )}>
@@ -66,9 +64,7 @@ export class RegistrationForm extends React.Component {
                     Register
               </button>
             </form>
-            <Link className ='login-link' to="/login">Already registered? Login!</Link>
-          </div>
-        </section>
+            <p className='login-para'>Already registered? <Link className ='login-link' to="/login">Login!</Link></p>
       </main>
     );
   }

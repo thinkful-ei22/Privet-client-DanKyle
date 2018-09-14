@@ -16,7 +16,7 @@ export function RegistrationPage(props) {
         <div className="col-12">
           <h1 className='register-page-heading'>Register</h1>
         </div>
-        <div className="col-12">
+        <div className="col-4">
         {/* pass history prop to registration form. added this to match requirement in the user stories */}
           <RegistrationForm history={props.history}/>
         </div>

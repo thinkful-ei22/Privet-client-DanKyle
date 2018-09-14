@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
-
 import LoginForm from './login-form';
+import './login-page.css';
 
 export function LoginPage(props) {
 
@@ -19,8 +19,7 @@ export function LoginPage(props) {
           <LoginForm />
         </div>
         <div className="col-12">
-          <p className='register-para'>Don't have an account yet?</p>
-          <p><Link className='register-link' to="/register"><span>Sign up now!</span></Link></p>
+          <p className='register-para'>Don't have an account yet? <Link className='register-link' to="/register">Sign up now!</Link></p>
         </div>
       </section>
     </main>

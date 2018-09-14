@@ -20,26 +20,30 @@
 .heading button {
   border: 3px solid #181818;
   color: #181818;
-    font-size: 18px;;
-    background: none;
-    cursor: pointer;
-    padding: 25px 80px;
-    display: inline-block;
-    margin: 15px 30px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 700;
-    outline: none;
-    position: relative;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
+  font-size: 18px;;
+  background: none;
+  cursor: pointer;
+  padding: 25px 80px;
+  display: inline-block;
+  margin: 15px 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .heading button:hover,
 .heading button:active {
   color: #fff;
   background: #181818;
+}
+
+.about-section main {
+  margin-bottom: 30px;
 }
 
 .about-section p{
@@ -56,5 +60,23 @@
 }
 
 .reg-form label {
+  font-size: 14px;
+}
+
+.reg-form .registrationForm {
+  border: 2px solid #DFE0E2;
+  padding: 15px;
+}
+
+.reg-form .register-form {
+  margin-bottom: 0px;
+}
+
+.reg-form .register-btn {
+  margin-top:13px;
+  margin-bottom:7px;
+}
+
+.reg-form .login-para {
   font-size: 14px;
 }
