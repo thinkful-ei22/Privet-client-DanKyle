@@ -6,11 +6,17 @@ import ReactTable from "react-table";
 import 'react-table/react-table.css';
 import './progress.css';
 import { fetchProgress } from '../actions/users';
+import { reset } from '../actions/users';
 
 export class Progress extends React.Component{
   componentDidMount(){
     this.props.dispatch(fetchProgress())
   }
+
+  handleReset() {
+    this.props.dispatch(reset());
+  }
+
   render(){
     if(!this.props.progress){
       return <p>Loading your progress...</p>
@@ -28,37 +34,51 @@ export class Progress extends React.Component{
       }
     })
     
-    const columns = [{
-      Header: 'Russian',
-      accessor: 'russian' // String-based value accessors!
-    }, {
-      Header: 'Translit',
-      accessor: 'translit'
-    },
+    const columns = 
+    [
+      {
+        Header: 'WORDS',
+        columns: [
+      {
+        Header: 'Russian',
+        accessor: 'russian'
+      }, {
+        Header: 'Translit',
+        accessor: 'translit'
+      },
       {
         Header: 'English',
         accessor: 'english'
+      }
+        ]
       },
       {
-        Header: 'Session Score',
-        accessor: 'sessionScore',
-        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-      },
-      {
-        Header: 'Session Attempts',
-        accessor: 'sessionAttempts',
-        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-      },
-      {
-        Header: 'Score',
-        accessor: 'score',
-        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-      },
-      {
-        Header: 'Attempts',
-        accessor: 'attempts',
-        Cell: props => <span className='number'>{props.value}</span> // Custom cell components!
-      }]
+        Header: 'CURRENT',
+        columns: [
+          {
+            Header: 'Score',
+            accessor: 'sessionScore',
+          },
+          {
+            Header: 'Attempts',
+            accessor: 'sessionAttempts'
+          }
+          ]
+        },
+        {
+          Header: 'OVERALL',
+          columns: [
+            {
+              Header: 'Score',
+              accessor: 'score'
+            },
+            {
+              Header: 'Attempts',
+              accessor: 'attempts'
+            }
+          ]
+        }
+      ]
 
     return (
       <div className='row'>
@@ -72,7 +92,10 @@ export class Progress extends React.Component{
             defaultPageSize={5}
             className={'-striped'}
           />
-          <Link to='/practice'><button className='right back-btn'>Practice</button></Link>
+          <div className='col-12 progress-btns right'>
+            <button onClick={() => this.handleReset()} className='resetBtn'>Reset Session</button>
+            <Link to='/practice'><button className='right back-btn'>Practice</button></Link>
+          </div>
       </main>
       </div>
     );
