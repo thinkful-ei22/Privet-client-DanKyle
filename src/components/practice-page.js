@@ -54,12 +54,12 @@ export class Practice extends React.Component {
 
   render() {
     if (!this.props.word) {
-      return <p>loading...</p>;
+      return <p className='center'>loading...</p>;
     }
 
     let greeting = <p></p>;
     if (this.state.showGreeting) {
-      greeting = (<p className='welcome-text left'>Welcome, {this.props.name}</p>);
+      greeting = (<p className='welcome-text left'>Welcome, {this.props.name}!</p>);
     }
 
     let feedback = '';
@@ -70,7 +70,7 @@ export class Practice extends React.Component {
     return (
       <main>
         <div className='row'>
-          <div className='col-12 user-greeting'>
+          <div className='col-12 center user-greeting'>
             {greeting}
           </div>
           <div className='col-12'>
@@ -87,8 +87,10 @@ export class Practice extends React.Component {
           <div className='col-6'>
             <WordForm handleSubmit={(answer) => this.handleSubmitBtn(answer)} submitBtn={this.state.showSubmitBtn} nextBtn={this.state.showNextBtn} handleNext={()=>this.handleNextBtn()}/>
           </div>
-          <div className=' horizontal-divider center col-12'>
-            <Link to='/progress'><button className='finishBtn center'>Finish</button></Link>
+          <div className='right col-12'>
+            <div className='horizontal-divider'>
+              <Link to='/progress'><button className='finishBtn right'>Finish</button></Link>
+            </div>
           </div>
         </div>
       </main>
