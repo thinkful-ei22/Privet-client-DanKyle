@@ -25,7 +25,7 @@ export const sendAnswerAction = (feedback) => ({
 });
 
 export const fetchWord = () => (dispatch, getState) => {
-  // dispatch(fetchWordRequest());
+  dispatch(fetchWordRequest());
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/word`, {
     method: 'GET',

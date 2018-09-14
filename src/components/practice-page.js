@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+
+import LinkButton from './LinkButton';
 import Word from './word';
 import WordForm from './word-form';
 import Feedback from './feedback';
@@ -89,7 +90,7 @@ export class Practice extends React.Component {
           </div>
           <div className='right col-12'>
             <div className='horizontal-divider'>
-              <Link to='/progress'><button className='finishBtn right'>Finish</button></Link>
+            <LinkButton to='/progress' className='finishBtn center'>Finish</LinkButton>
             </div>
           </div>
         </div>

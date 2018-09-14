@@ -1,13 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+
+import LinkButton from './LinkButton';
 import RegistrationForm from './registration-form';
 import About from './about';
 import './landing.css';
 
 export function LandingPage(props) {
   
-  let letsGoBtn = (<Link to="/register"><button >Let's Go!</button></Link>);
+  const ctaBtnLink = props.loggedIn ? 'practice' : 'register';
+  const ctaBtnText = props.loggedIn ? 'Let\'s Go!' : 'Sign Me Up!';
   let aboutArea = (
     <div className='col-12'>
       <div className='col-8'>
@@ -21,7 +23,6 @@ export function LandingPage(props) {
   );
   
   if (props.loggedIn) {
-    letsGoBtn = (<Link to="/practice"><button >Let's Go!</button></Link>);
     aboutArea = (
     <div className='col-12'>
         <About />
@@ -36,7 +37,7 @@ export function LandingPage(props) {
           <div className='col-12'>
             <h1 className='title'>Learning Russian has never been easier</h1>
             <p className='subtitle'>Fast and fun way to memorize new words!</p>
-            {letsGoBtn}
+            <LinkButton to={ctaBtnLink}>{ctaBtnText}</LinkButton>
           </div>
         </div>
       </section>

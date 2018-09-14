@@ -21,23 +21,22 @@ export default class WordForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.handleSubmit(this.state.value);
-    this.setState({ disabled: true});
+    this.setState({ disabled: true}, () => {
+      this.nextBtn.focus();
+    });
   }
 
   handleNext(e){
+    e.preventDefault();
     this.props.handleNext();
-    this.setState({ value: '', disabled: false });
+    this.setState({ value: '', disabled: false }, () => {
+      this.textInput.focus();
+    });
   }
 
   render(){
-    let nextBtn;
-    if (this.props.nextBtn) {
-      nextBtn = <button className='next-btn' onClick={this.handleNext}>Next</button>;
-    }
-    let submitBtn;
-    if (this.props.submitBtn) {
-      submitBtn = <button className='answer-submit-btn' type="submit">Submit</button>;
-    }
+    const nextBtnDisplay = this.props.nextBtn ? '' : 'hidden';
+    const submitBtnDisplay = this.props.submitBtn ? '' : 'hidden';
 
     return (
       <section className='word-section row'>
@@ -47,10 +46,28 @@ export default class WordForm extends React.Component {
           </div>
           <form className='word-form' onSubmit={this.handleSubmit}>
             <label>
-              <input className='user-answer' type="text" disabled={this.state.disabled} value={this.state.value} onChange={this.handleChange}  />
+              <input
+                className='user-answer'
+                type="text"
+                disabled={this.state.disabled}
+                value={this.state.value}
+                onChange={this.handleChange}
+                ref={(ref) => this.textInput = ref}
+              />
             </label>
-            { submitBtn }
-            { nextBtn }
+            <button
+              className={`answer-submit-btn ${submitBtnDisplay}`}
+              type="submit"
+            >
+              Submit
+            </button>
+            <button
+              className={`next-btn ${nextBtnDisplay}`}
+              onClick={this.handleNext}
+              ref={(ref) => this.nextBtn = ref}
+            >
+              Next
+            </button>
           </form>
         </div>
       </section>

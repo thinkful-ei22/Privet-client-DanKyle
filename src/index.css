@@ -19,7 +19,3 @@ body {
 .form-error{
   color:red;
 }
-
-input:focus {
-    outline:none;
-}
