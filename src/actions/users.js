@@ -56,6 +56,7 @@ export const reset = () => (dispatch, getState) => {
     }
   })
   .then(res => normalizeResponseErrors(res))
+  .then(() => dispatch(fetchProgress()))
   .catch(err => console.log(err))
 }
 
