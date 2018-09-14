@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import LinkButton from './LinkButton';
 import requiresLogin from './requires-login';
 import ReactTable from "react-table";
 import 'react-table/react-table.css';
@@ -94,7 +96,7 @@ export class Progress extends React.Component{
           />
           <div className='col-12 progress-btns right'>
             <button onClick={() => this.handleReset()} className='resetBtn'>Reset Session</button>
-            <Link to='/practice'><button className='right back-btn'>Practice</button></Link>
+            <LinkButton to='/practice' className='right back-btn'>Practice</LinkButton>
           </div>
       </main>
       </div>
