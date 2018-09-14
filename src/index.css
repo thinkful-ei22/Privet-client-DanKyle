@@ -23,3 +23,9 @@ body {
 input:focus {
     outline:none;
 }
+
+@media screen and (max-width: 400px) {
+  input {
+    background-color: #fbfbfb;
+  }
+}

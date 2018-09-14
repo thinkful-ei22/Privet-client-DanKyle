@@ -42,3 +42,22 @@
     font-weight: 300;
     margin-top: 0;
   }
+
+  .small li{
+   display:block;
+   margin-top: 15px;
+   margin-left: 0;
+}
+
+.small .menuToggle {
+  color: #fff;
+}
+
+.small .logo {
+  margin-top: 20px;
+}
+
+icon {
+  width: 25px;
+  height: 25px;
+}
