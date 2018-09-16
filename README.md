@@ -10,7 +10,7 @@ With **Privet**, we help you stay ahead of that moment of forgetting, and we do 
 As you answer words correctly, we'll show you those words less frequently. If you guess the wrong answer, we'll give you more opportunities to practice that word. *Learning has never been easier!*
 
 ### Tech Stack
-The app uses React and CSS grid for the frontend, Passport/JWT for authentication and Redux for state management.
+The app uses React and CSS grid for the frontend, JWT for auth and Redux for state management.
 
 ### Deployed version
 https://privet-hello.herokuapp.com/
