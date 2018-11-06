@@ -51,6 +51,8 @@
 
 .small .menuToggle {
   color: #fff;
+  border: none;
+  background-color: inherit;
 }
 
 .small .logo {
